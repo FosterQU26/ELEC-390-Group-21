@@ -21,15 +21,13 @@ def get_distance():
 
     # Send 10µs HIGH pulse to trigger
     TRIGGER_PIN.value(1)
+    pulse_start = time.time()  # Start time
     time.sleep(0.00001)  # 10µs delay
-    TRIGGER_PIN.value(0)
-
-    # Measure the pulse width on echo pin
-    while ECHO_PIN.value() == 0:
-        pulse_start = time.time()  # Start time
+    TRIGGER_PIN.value(0)       
     
-    while ECHO_PIN.value() == 1:
-        pulse_end = time.time()  # End time
+    while ECHO_PIN.value() == 0:
+    
+    pulse_end = time.time()  # End time
 
     pulse_duration = pulse_end - pulse_start
 
