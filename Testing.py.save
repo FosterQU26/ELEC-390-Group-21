@@ -4,14 +4,15 @@ from picarx import Picarx
 import time
 
 if __name__ == "__main__" :
+    while (1):
     try:
         #initilize a Picarx object
         px = Picarx()
         #Motor Test
         px.forward(10)      #Move forward
-        time.sleep(2.5)
+        time.sleep(0.5)
         px.backward(10)     #Move Backward
-        time.sleep(2.5)
+        time.sleep(0.5)
         px.stop()
         #Test Cervos
         for angle in range(0, 35):
