@@ -5,7 +5,12 @@ import time
 TRIGGER_PIN = Pin("D0")  # Trigger pin
 ECHO_PIN = Pin("D1")     # Echo pin
 
+pulse_end = 0
+pulse_start = 0
+
+
 def get_distance():
+    global pulse_end, pulse_start
     """
     Measures the distance using an HC-SR04 ultrasonic sensor.
     Returns distance in centimeters.
