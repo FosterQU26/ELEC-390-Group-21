@@ -2,9 +2,9 @@ from robot_hat import Pin
 from robot_hat import PWM
 from time import sleep
 
-led_pin = Pin("D1")                      # create a Pin object from a digital pin
+led_pin = Pin("D0")                      # create a Pin object from a digital pin
 # Initialize PWM on P0 (adjust if needed)
-servo_pin = PWM('P0')  
+servo_pin = PWM('P3')  
 servo_pin.freq(50)  # Set frequency to 50Hz (Servo standard)
 
 def set_servo_angle(angle):
@@ -23,10 +23,14 @@ def set_servo_angle(angle):
     servo_pin.pulse_width_percent(duty_cycle)
     print(f"Moved to {angle} degrees (Duty Cycle: {duty_cycle:.1f}%)")
 
+PinOn = 1
+
 # Sweep servo from 0° to 180° in 30-degree steps
 for angle in range(0, 181, 30):
+    PinOn = PinOn ^ 1
+    led_pin.value(PinOn)
     set_servo_angle(angle)
-    time.sleep(0.5)  # Delay for servo movement
+    sleep(0.5)  # Delay for servo movement
 
 # Reset to neutral position (90 degrees)
 set_servo_angle(90)
