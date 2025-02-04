@@ -1,4 +1,5 @@
 from robot_hat import Pin
+import time
 
 pin = Pin("D0")                      # create a Pin object from a digital pin
 
