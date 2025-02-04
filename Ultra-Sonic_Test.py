@@ -3,10 +3,10 @@ from robot_hat import Ultrasonic
 import time
 
 # Define pins
-TRIGGER_PIN = Pin("D0")  # Trigger pin
-ECHO_PIN = Pin("D1")     # Echo pin
+TRIGGER_PIN = "D0"  # Trigger pin
+ECHO_PIN = "D1"     # Echo pin
 
-SENSOR = Ultrasonic(TRIGGER_PIN, ECHO_PIN)
+SENSOR = Ultrasonic(Pin(TRIGGER_PIN), Pin(ECHO_PIN, mode=Pin.IN, pull=Pin.PULL_DOWN))
 # Main loop: Print distance every second
 try:
     while True:
