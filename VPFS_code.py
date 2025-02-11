@@ -41,7 +41,6 @@ else:
     print("Got status", str(res.status), "requesting fares")
 
 
-
 # Check the status of our fare
 res = request.urlopen(server + "/fares/current/" + str(team))
 # Verify that we got HTTP OK
