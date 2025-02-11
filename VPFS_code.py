@@ -2,10 +2,10 @@ import json
 from urllib import request
 
 # Server details will change between lab, home, and competition, so saving them somehwere easy to edit
-server_ip = "?.?.?.?"
+server_ip = "?.?"
 server = f"http://{server_ip}:5000"
-authKey = "my_auth_key"
-team = 99
+authKey = "21"
+team = 21
 
 # Make request to fares endpoint
 res = request.urlopen(server + "/fares")
