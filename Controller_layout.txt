@@ -1,0 +1,13 @@
+button 0 = A
+button 1 = B
+button 2 = X
+button 3 = Y
+
+    down right is + + for some reason 
+L stick = axis 0, axis 1
+R stick = axis 2, axis 3
+
+DPad has coordinates of x,y that are normal
+
+RB = button 5
+LB = button 4
