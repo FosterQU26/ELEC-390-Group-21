@@ -1,5 +1,9 @@
 import pygame # type: ignore
+#from picarx import Picarx # type: ignore
 import time
+
+#initilize a Picarx object
+#px = Picarx()
 
 # Initialize Pygame
 pygame.init()
@@ -19,8 +23,10 @@ else:
     print(f"Joystick {joystick.get_name()} initialized.")
 
 running = True
-DPad = (0, 0)
 LRsignal = 0
+forward = 0
+steering = 0
+
 
 while running:
     # Process events
@@ -28,10 +34,9 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        # Detect D-pad movement
-        elif event.type == pygame.JOYHATMOTION:
-            #print(f"D-pad moved to {event.value}")
-            DPad = event.value
+        elif event.type == pygame.JOYAXISMOTION and event.axis == 0:
+            steering = event.value
+
         # Detect button presses
         elif event.type == pygame.JOYBUTTONDOWN and (event.button == 4 or event.button == 5):
             print(f"Button {event.button} pressed.")
@@ -44,27 +49,14 @@ while running:
         elif event.type == pygame.JOYBUTTONUP and (event.button == 4 or event.button == 5):
             print(f"Button {event.button} released.")
             LRsignal = 0
+
+        elif event.type == pygame.JOYBUTTONDOWN and (event.button == 0):
+            forward = 1
+
+        elif event.type == pygame.JOYBUTTONUP and (event.button == 0):
+            forward = 0
     
-    # Check D-pad movement
-    match DPad:
-        case (-1, 1):
-            print("D-pad moved UP-LEFT")
-        case (1, 1):
-            print("D-pad moved UP-RIGHT")
-        case (-1, -1):
-            print("D-pad moved DOWN-LEFT")
-        case (1, -1):
-            print("D-pad moved DOWN-RIGHT")
-        case (0, 1):
-            print("D-pad moved UP")
-        case (0, -1):
-            print("D-pad moved DOWN")
-        case (-1, 0):
-            print("D-pad moved LEFT")
-        case (1, 0):
-            print("D-pad moved RIGHT")
-        case _:
-            print("D-pad in neutral position")
+
 
     # Check LR signal
     match LRsignal:
@@ -76,6 +68,15 @@ while running:
             print("No signal")
         case _:
             print("Invalid signal") 
+
+    # Check forward signal
+    if (forward == 1):
+        print("Moving forward")
+    else:
+        print("Stop moving")
+
+    # Check steering signal
+    print(steering)
 
 # Cleanup
 pygame.quit()
