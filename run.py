@@ -59,10 +59,6 @@ def signal_left ():
     sleep(0.20)
     pwm5.pulse_width_percent(0)
 
-def drive():
-    while adjust_direction():
-        sleep(0.1)
-
 def adjust_direction():
     px.forward(10)
     """Adjust the car's direction based on grayscale sensor values."""
@@ -91,7 +87,9 @@ def adjust_direction():
 print(px.get_grayscale_data())
 sleep(2)
 print("Showtime")
-drive()
+
+while adjust_direction():
+    sleep(0.1)
 '''
 while 1:
     key = readchar.readkey()
