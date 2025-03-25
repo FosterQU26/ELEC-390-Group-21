@@ -61,6 +61,7 @@ def signal_left ():
 
 
 def adjust_direction():
+    pwm4.pulse_width_percent(0)
     px.forward(10)
     """Adjust the car's direction based on grayscale sensor values."""
     sensor_values = px.get_grayscale_data()
@@ -71,6 +72,7 @@ def adjust_direction():
 
     if left_sensor > 200 and center_sensor > 200 and right_sensor > 200:
         print("Both sensors detected high value! Stopping.")
+        pwm4.pulse_width_percent(100)
         px.forward(0)
         return False
     elif left_sensor > 200:
@@ -102,9 +104,11 @@ while 1:
             while adjust_direction():
                 sleep(0.1)
         elif 'a' == key:
+            pwm5.pulse_width_percent(100)
             px.set_dir_servo_angle(-35)
             px.forward(2)
         elif 'd' == key:
+            pwm6.pulse_width_percent(100)
             px.set_dir_servo_angle(35)
             px.forward(2)
         elif 'k' == key:
@@ -117,6 +121,8 @@ while 1:
         break 
 
     sleep(0.5)  
+    pwm5.pulse_width_percent(0)
+    pwm6.pulse_width_percent(0)
     px.set_dir_servo_angle(0)
     px.forward(0)
 
