@@ -5,12 +5,12 @@ import readchar
 
 px = Picarx()
 
-'''
+
 # Create PWM objects for each pin
 pwm4 = PWM('P4')  # Pin 4
 pwm5 = PWM('P5')  # Pin 5
 pwm6 = PWM('P6')  # Pin 6
-
+'''
 # Set frequency and prescaler for each PWM pin (example values)
 freq = 1000  # Frequency in Hz
 prescaler = 1  # Prescaler value (0-255, typically for adjusting the frequency)
