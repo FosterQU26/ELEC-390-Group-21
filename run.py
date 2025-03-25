@@ -5,6 +5,7 @@ import readchar
 
 px = Picarx()
 
+'''
 # Create PWM objects for each pin
 pwm4 = PWM('P4')  # Pin 4
 pwm5 = PWM('P5')  # Pin 5
@@ -58,6 +59,7 @@ def signal_left ():
     pwm5.pulse_width_percent(100)
     sleep(0.20)
     pwm5.pulse_width_percent(0)
+'''
 
 def adjust_direction():
     px.forward(10)
@@ -90,6 +92,7 @@ print("Showtime")
 
 while adjust_direction():
     sleep(0.1)
+
 '''
 while 1:
     key = readchar.readkey()
