@@ -59,6 +59,22 @@ def signal_left ():
     sleep(0.20)
     pwm5.pulse_width_percent(0)
 
+manual = '''
+Press keys on keyboard to control PiCar-X!
+    w: Forward
+    a: Turn left
+    s: Backward
+    d: Turn right
+    i: Head up
+    k: Head down
+    j: Turn head left
+    l: Turn head right
+    ctrl+c: Quit
+'''
+
+def show_info():
+    print("\033[H\033[J",end='')  # clear terminal windows
+    print(manual)
 
 def adjust_direction():
     pwm4.pulse_width_percent(0)
@@ -92,6 +108,7 @@ sleep(2)
 print("Showtime")
 
 while 1:
+    show_info()
     key = None
     key = readchar.readkey()
     key = key.lower()
