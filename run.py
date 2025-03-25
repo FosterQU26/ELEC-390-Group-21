@@ -3,13 +3,12 @@ from robot_hat import PWM
 from time import sleep
 import readchar
 
-px = Picarx()
-
-
 # Create PWM objects for each pin
 pwm4 = PWM('P4')  # Pin 4
 pwm5 = PWM('P5')  # Pin 5
 pwm6 = PWM('P6')  # Pin 6
+
+px = Picarx()
 '''
 # Set frequency and prescaler for each PWM pin (example values)
 freq = 1000  # Frequency in Hz
@@ -89,7 +88,9 @@ def adjust_direction():
 print(px.get_grayscale_data())
 sleep(2)
 print("Showtime")
-
+px.forward(10)
+sleep (1)
+print("Showtime 2")
 while adjust_direction():
     print(px.get_grayscale_data())
     sleep(0.1)
