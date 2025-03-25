@@ -15,7 +15,7 @@ freq = 1000  # Frequency in Hz
 prescaler = 1  # Prescaler value (0-255, typically for adjusting the frequency)
 period = 1000  # Period (this can vary depending on your needs)
 pulse_width = 500  # Pulse width in microseconds (for on-time duration)
-pulse_width_percent = 100  # Duty cycle in percentage (0-100)
+pulse_width_percent = 0  # Duty cycle in percentage (0-100)
 
 # Initialize the PWM settings for each pin
 pwm4.freq(freq)
@@ -92,7 +92,7 @@ print(px.get_grayscale_data())
 sleep(2)
 print("Showtime")
 drive()
-
+'''
 while 1:
     key = readchar.readkey()
     key = key.lower()
@@ -126,4 +126,4 @@ px.stop()
 print("Finished")
 
 
-
+'''
