@@ -94,6 +94,7 @@ while adjust_direction():
 
 
 while 1:
+    key = None
     key = readchar.readkey()
     key = key.lower()
     if key in ('wadkl'):
