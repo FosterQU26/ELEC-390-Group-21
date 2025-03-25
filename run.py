@@ -88,9 +88,7 @@ def adjust_direction():
 print(px.get_grayscale_data())
 sleep(2)
 print("Showtime")
-px.forward(10)
-sleep (1)
-print("Showtime 2")
+
 while adjust_direction():
     sleep(0.1)
 
