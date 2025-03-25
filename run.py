@@ -104,10 +104,12 @@ while 1:
             px.backwards(2)        
         elif 'a' == key:
             pwm5.pulse_width_percent(100)
+            pwm4.pulse_width_percent(0)
             px.set_dir_servo_angle(-35)
             px.forward(2)
         elif 'd' == key:
             pwm6.pulse_width_percent(100)
+            pwm4.pulse_width_percent(0)
             px.set_dir_servo_angle(35)
             px.forward(2)
         elif 'k' == key:
