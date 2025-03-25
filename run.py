@@ -115,7 +115,7 @@ while 1:
             signal_right()
     elif key == 'q':
         break 
-    sleep(1)  
+    sleep(0.1)  
 
 pwm4.pulse_width_percent(0)
 pwm5.pulse_width_percent(0)
