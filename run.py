@@ -5,7 +5,7 @@ import readchar
 
 # Create PWM objects for each pin
 pwm4 = PWM('P8')  # Pin 8
-pwm5 = PWM('P11')  # Pin 9
+pwm5 = PWM('P7')  # Pin 9
 pwm6 = PWM('P9')  # Pin 10
 
 # Set frequency and prescaler for each PWM pin (example values)
@@ -89,6 +89,12 @@ def adjust_direction():
 
 print(px.get_grayscale_data())
 sleep(2)
+
+pwm5.pulse_width_percent(100)
+sleep(2)
+pwm5.pulse_width_percent(0)
+
+
 print("Showtime")
 
 while adjust_direction():
