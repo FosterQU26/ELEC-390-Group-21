@@ -5,7 +5,7 @@ import readchar
 
 # Create PWM objects for each pin
 pwm4 = PWM('P8')  # Pin 8
-pwm5 = PWM('P10')  # Pin 9
+pwm5 = PWM('P11')  # Pin 9
 pwm6 = PWM('P9')  # Pin 10
 
 # Set frequency and prescaler for each PWM pin (example values)
