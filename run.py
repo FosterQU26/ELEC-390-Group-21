@@ -9,7 +9,7 @@ pwm5 = PWM('P5')  # Pin 5
 pwm6 = PWM('P6')  # Pin 6
 
 px = Picarx()
-'''
+
 # Set frequency and prescaler for each PWM pin (example values)
 freq = 1000  # Frequency in Hz
 prescaler = 1  # Prescaler value (0-255, typically for adjusting the frequency)
@@ -58,7 +58,7 @@ def signal_left ():
     pwm5.pulse_width_percent(100)
     sleep(0.20)
     pwm5.pulse_width_percent(0)
-'''
+
 
 def adjust_direction():
     px.forward(10)
@@ -92,16 +92,16 @@ px.forward(10)
 sleep (1)
 print("Showtime 2")
 while adjust_direction():
-    print(px.get_grayscale_data())
     sleep(0.1)
 
-'''
+
 while 1:
     key = readchar.readkey()
     key = key.lower()
     if key in ('wadkl'):
         if 'w' == key:
-            drive()
+            while adjust_direction():
+                sleep(0.1)
         elif 'a' == key:
             px.set_dir_servo_angle(-35)
             px.forward(2)
@@ -128,5 +128,3 @@ px.stop()
 
 print("Finished")
 
-
-'''
