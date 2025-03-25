@@ -85,9 +85,13 @@ def drive():
             px.set_dir_servo_angle(0)
             run = True
 
+        sleep(0.1)
+
+
 print(px.get_grayscale_data())
-sleep(0.1)
+sleep(2)
 print("Showtime")
+drive()
 
 while 1:
     key = readchar.readkey()
