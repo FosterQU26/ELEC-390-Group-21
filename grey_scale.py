@@ -1,20 +1,21 @@
 from picarx import Picarx
-from speed import Speed
+from time import sleep
 
 px = Picarx()
-car = Speed(px)
+
 
 def adjust_direction():
-    car.set_speed(10)
+    px.forward(10)
     """Adjust the car's direction based on grayscale sensor values."""
     sensor_values = px.get_grayscale_data()
 
     left_sensor = sensor_values[0]
+    center_sensor = sensor_values[1]
     right_sensor = sensor_values[2]
 
-    if left_sensor > 200 and right_sensor > 200:
+    if left_sensor > 200 and center_sensor > 200 and right_sensor > 200:
         print("Both sensors detected high value! Stopping.")
-        car.set_speed(0)
+        px.forward(0)
         return False
     elif left_sensor > 200:
         print("Left sensor detected high value! Turning right.")
@@ -28,5 +29,12 @@ def adjust_direction():
         px.set_dir_servo_angle(0)
         return True
 
+print(px.get_grayscale_data())
+sleep(2)
+print("Showtime")
+
 while adjust_direction():
-    pass
+    sleep(0.1)
+
+print("STOPPED")
+

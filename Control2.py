@@ -32,6 +32,32 @@ pwm6.prescaler(prescaler)
 pwm6.period(period)
 pwm6.pulse_width_percent(pulse_width_percent)
 
+def signal_right ():
+    pwm6.pulse_width_percent(100)
+    sleep(0.20)
+    pwm6.pulse_width_percent(0)
+    sleep(0.20)
+    pwm6.pulse_width_percent(100)
+    sleep(0.20)
+    pwm6.pulse_width_percent(0)
+    sleep(0.20)
+    pwm6.pulse_width_percent(100)
+    sleep(0.20)
+    pwm6.pulse_width_percent(0)
+    
+def signal_left ():
+    pwm5.pulse_width_percent(100)
+    sleep(0.20)
+    pwm5.pulse_width_percent(0)
+    sleep(0.20)
+    pwm5.pulse_width_percent(100)
+    sleep(0.20)
+    pwm5.pulse_width_percent(0)
+    sleep(0.20)
+    pwm5.pulse_width_percent(100)
+    sleep(0.20)
+    pwm5.pulse_width_percent(0)
+
 if __name__ == "__main__":
     try:
         pan_angle = 0
@@ -50,18 +76,18 @@ if __name__ == "__main__":
                     px.backward(80)
                 elif 'a' == key:
                     px.set_dir_servo_angle(-35)
+                    pwm5.pulse_width_percent(100)
                     px.forward(80)
                 elif 'd' == key:
                     px.set_dir_servo_angle(35)
+                    pwm6.pulse_width_percent(100)
                     px.forward(80)
                 elif 'k' == key:
                     print("Signal Left")
-                    pwm5.pulse_width_percent(100)  # Turn on pin 5
-                    print("Pin 5 ON")
+                    signal_left()
                 elif 'l' == key:
                     print("Signal Right")
-                    pwm6.pulse_width_percent(100)  # Turn on pin 6
-                    print("Pin 6 ON")
+                    signal_right()
 
                 sleep(1)
                 px.forward(0)
