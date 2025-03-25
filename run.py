@@ -8,8 +8,6 @@ pwm4 = PWM('P4')  # Pin 4
 pwm5 = PWM('P5')  # Pin 5
 pwm6 = PWM('P6')  # Pin 6
 
-px = Picarx()
-
 # Set frequency and prescaler for each PWM pin (example values)
 freq = 1000  # Frequency in Hz
 prescaler = 1  # Prescaler value (0-255, typically for adjusting the frequency)
@@ -32,6 +30,8 @@ pwm6.freq(freq)
 pwm6.prescaler(prescaler)
 pwm6.period(period)
 pwm6.pulse_width_percent(pulse_width_percent)
+
+px = Picarx()
 
 def signal_right ():
     pwm6.pulse_width_percent(100)
