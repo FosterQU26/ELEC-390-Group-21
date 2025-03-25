@@ -115,7 +115,10 @@ while 1:
             signal_right()
     elif key == 'q':
         break 
-    sleep(0.1)  
+
+    sleep(0.5)  
+    px.set_dir_servo_angle(0)
+    px.forward(0)
 
 pwm4.pulse_width_percent(0)
 pwm5.pulse_width_percent(0)
