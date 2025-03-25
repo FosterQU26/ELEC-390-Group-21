@@ -61,15 +61,12 @@ def signal_left ():
 
 manual = '''
 Press keys on keyboard to control PiCar-X!
-    w: Forward
+    w: Drive
     a: Turn left
-    s: Backward
     d: Turn right
-    i: Head up
-    k: Head down
-    j: Turn head left
-    l: Turn head right
-    ctrl+c: Quit
+    k: Right Signal
+    j: Left Signal
+    q: Quit
 '''
 
 def show_info():
