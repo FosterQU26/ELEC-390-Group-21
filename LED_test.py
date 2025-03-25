@@ -2,16 +2,16 @@ from robot_hat import PWM
 import time
 
 # Create PWM objects for each pin
-pwm4 = PWM('P0')  # Pin 4
-pwm5 = PWM('P1')  # Pin 5
-pwm6 = PWM('P2')  # Pin 6
+pwm4 = PWM('P4')  # Pin 4
+pwm5 = PWM('P5')  # Pin 5
+pwm6 = PWM('P6')  # Pin 6
 
 # Set frequency and prescaler for each PWM pin (example values)
 freq = 1000  # Frequency in Hz
-prescaler = 0  # Prescaler value (0-255, typically for adjusting the frequency)
+prescaler = 1  # Prescaler value (0-255, typically for adjusting the frequency)
 period = 1000  # Period (this can vary depending on your needs)
 pulse_width = 500  # Pulse width in microseconds (for on-time duration)
-pulse_width_percent = 50  # Duty cycle in percentage (0-100)
+pulse_width_percent = 100  # Duty cycle in percentage (0-100)
 
 # Initialize the PWM settings for each pin
 pwm4.freq(freq)
