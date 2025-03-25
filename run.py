@@ -91,6 +91,7 @@ sleep(2)
 print("Showtime")
 
 while adjust_direction():
+    print(px.get_grayscale_data())
     sleep(0.1)
 
 '''
