@@ -89,17 +89,7 @@ def adjust_direction():
 
 print(px.get_grayscale_data())
 sleep(2)
-
-pwm5.pulse_width_percent(100)
-sleep(2)
-pwm5.pulse_width_percent(0)
-
-
 print("Showtime")
-
-while adjust_direction():
-    sleep(0.1)
-
 
 while 1:
     key = None
@@ -109,6 +99,9 @@ while 1:
         if 'w' == key:
             while adjust_direction():
                 sleep(0.1)
+        elif 's' == key:
+            pwm4.pulse_width_percent(100)
+            px.backwards(2)        
         elif 'a' == key:
             pwm5.pulse_width_percent(100)
             px.set_dir_servo_angle(-35)
@@ -129,7 +122,6 @@ while 1:
     sleep(0.5)  
     pwm5.pulse_width_percent(0)
     pwm6.pulse_width_percent(0)
-    px.set_dir_servo_angle(0)
     px.forward(0)
 
 pwm4.pulse_width_percent(0)
@@ -138,7 +130,6 @@ pwm6.pulse_width_percent(0)
 px.set_dir_servo_angle(0)
 px.forward(0)
 px.stop() 
-
 
 print("Finished")
 
