@@ -100,8 +100,8 @@ while 1:
             while adjust_direction():
                 sleep(0.1)
         elif 's' == key:
-            pwm4.pulse_width_percent(100)
-            px.backwards(2)        
+            px.set_dir_servo_angle(0)
+            px.backward(20)
         elif 'a' == key:
             pwm5.pulse_width_percent(100)
             pwm4.pulse_width_percent(0)
